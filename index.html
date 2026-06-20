@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List с дедлайнами</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="quote-block">
+            <blockquote class="quote-text">
+                «Дисциплина — это мост между целями и их достижением»
+            </blockquote>
+            <cite class="quote-author">Джим Рон</cite>
+        </div>
+        <div id="app"></div>
+    </div>
+    <div id="test-app" style="display:none;"></div>
+
+    <script type="text/javascript" src="lib/elmish.js"></script>
+    <script type="text/javascript" src="lib/todo-app.js"></script>
+    <script type="text/javascript">
+        const saved = localStorage.getItem('elmish_store');
+        let initialModel = {
+            todos: [
+                { id: 1, title: "Изучить Elm Architecture", done: true, dueDate: null },
+                { id: 2, title: "Собрать Todo List с дедлайнами", done: false, dueDate: "2026-07-01" },
+                { id: 3, title: "Завоевать интернет", done: false, dueDate: "2026-06-28" }
+            ],
+            hash: window.location.hash || '#/'
+        };
+
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                if (parsed.todos) {
+                    initialModel = parsed;
+                }
+            } catch (e) {}
+        }
+
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash || '#/';
+            if (window.signal) {
+                window.signal('SET_HASH', hash);
+            }
+        });
+
+        mount(initialModel, update, view, 'app', subscriptions);
+
+        setTimeout(function() {
+            const hash = window.location.hash || '#/';
+            if (window.signal) {
+                window.signal('SET_HASH', hash);
+            }
+        }, 10);
+    </script>
+</body>
+</html>
