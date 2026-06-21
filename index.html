@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List с дедлайнами</title>
+    <title>Todo List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -24,9 +24,9 @@
         const saved = localStorage.getItem('elmish_store');
         let initialModel = {
             todos: [
-                { id: 1, title: "Изучить Elm Architecture", done: true, dueDate: null },
-                { id: 2, title: "Собрать Todo List с дедлайнами", done: false, dueDate: "2026-07-01" },
-                { id: 3, title: "Завоевать интернет", done: false, dueDate: "2026-06-28" }
+                { id: 1, title: "Learn Elm Architecture", done: true, dueDate: null },
+                { id: 2, title: "Build Todo List with deadlines", done: false, dueDate: "2026-07-01" },
+                { id: 3, title: "Conquer the internet", done: false, dueDate: "2026-06-28" }
             ],
             hash: window.location.hash || '#/'
         };
