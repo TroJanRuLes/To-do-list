@@ -24,4 +24,4 @@ cd To-do-list
     Проект доступен по ссылке:
 https://trojanrules.github.io/To-do-list/
 
-[![Maintainability](https://img.shields.io/badge/Maintainability-B-brightgreen?style=for-the-badge&logo=code-climate)](https://qlty.sh/workspaces/TroJanRuLes/To-do-list)
+{<img src="https://qlty.sh/gh/TroJanRuLes/projects/To-do-list/maintainability.svg" alt="Maintainability" />}[https://qlty.sh/gh/TroJanRuLes/projects/To-do-list]
